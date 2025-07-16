@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StaticPageController;
@@ -15,7 +16,7 @@ Route::middleware(['auth', 'verified'])
     ->prefix('admin')
     ->name('admin.')
     ->group(function () {
-//        Route::get('/admin', [AdminPageController::class, 'admin'])->name('admin');
+        Route::get('/', [AdminController::class, 'index'])->name('index');
     });
 
 

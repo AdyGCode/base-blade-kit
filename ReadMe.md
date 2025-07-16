@@ -32,6 +32,10 @@ We will add:
 - [Laravel Livewire](https://livewire.laravel.com) (SPA components in PHP)
 - [Laravel Telescope](https://laravel.com/docs/telescope) (Application Monitoring)
 
+Note that with Windows Systems not having the `pcntl` extension for PHP we cannot install Laravel Pail.
+
+For non Windows users, or those using Windows Subsystem for Linux, please feel free to install and use Laravel Pail, a log streaming package.
+
 ---
 
 ### Installing Breeze
@@ -55,6 +59,19 @@ php artisan breeze:install
 
 ```shell
 rm postconfig.config.js
+```
+
+#### Add FontAwesome NPM Package
+
+```shell
+npm install @forawesome/fontawesome-free
+npm update
+```
+
+#### Update any node dependencies
+
+```shell
+npm update
 ```
 
 #### Update the following files:
@@ -118,6 +135,7 @@ Open the `resources/css/app.css` file and update the contents to be:
 
 ```css
 @import 'tailwindcss';
+@import "@fortawesome/fontawesome-free/css/all.css";
 
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
@@ -285,7 +303,7 @@ This will ensure your code matches the Laravel style.
 
 We can run a development server in a number of different ways.
 
-For this we willuse the Terminal and execute the "dev" server script.
+For this we will use the Terminal and execute the "dev" server script.
 
 Either:
 Split the current terminal into 2 halves, or
@@ -529,12 +547,103 @@ class DashboardController extends Controller
 
 ```
 
+## Admin Page Layout
+
+- Create Admin Layout Component
+- Move the view to resource/views/layout and rename to admin.blade.php
+- Create an Admin Page Controller
+- Create Admin Home page view
+- Create Admin Navigation layout view
+- Create admin route in routes/web.php
+
+```shell
+php artisan make:component AdminLayout
+
+mv resources/views/components/admin-layout.blade.php resources/views/layout/admin.blade.php
+
+phg artisan make:controller Admin/AdminController
+
+mkdir resources/views/admin
+touch resources/views/admin/index.blade.php
+touch resources/views/layouts/admin-navigation.blade.php
+```
+
+#### Admin Page Layout
+
+In the admin/index.blade.php file add:
+
+```php
+
+
+```
+
+
+
+#### Admin Navigation Layout
+
+in the admin/layouts/admin-layout.blade.php add:
+
+
+```php
+
+
+```
+
+
+Edit the routes/web.php file, and fFind the lines:
+
+```php
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+```
+
+Immediately BEFORE this add:
+
+```php
+Route::middleware(['auth', 'verified'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+        Route::get('/', [AdminController::class, 'index'])->name('index');
+    });
+```
+
+
+
+
+
 - Blade Templates circa Laravel 11
 - Navigation bar on guest and app layouts
 - Footer in guest and app layouts
 - Email Verification enabled
 - [Font Awesome 6 (Free)](https://fontawesome.com)
 
+
+
+
+# After Cloning
+
+The following steps will be done:
+
+- cd into folder
+- create a database.sqlite file
+- install npm packages
+- install composer packages
+- migrate and seed
+```shell
+cd FOLDRE_NAME
+touch database/database.sqlite
+npm i
+npm update
+composer install
+composer update
+php artisan migrate:fresh --seed
+
+```
 
 
 ## Tutorials, Articles & References
