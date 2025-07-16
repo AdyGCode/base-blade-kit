@@ -1,13 +1,13 @@
 <div class="flex h-screen flex-col justify-between border-e border-gray-100 bg-white">
     <div class="px-0 py-4">
-    <span class="grid h-10 w-full place-content-center text-xs text-gray-600">
-                <a class="block" href="{{route('admin.index')}} ">
-                    <span class="sr-only">Admin Home</span>
+        <p class="grid h-10 w-full place-content-center text-xs text-gray-600">
+            <a class="block" href="{{route('home')}} ">
+                <span class="sr-only">Home</span>
 
-                    <x-application-logo
-                        class="w-14 h-14 fill-current text-gray-700 hover:text-teal-700 transition duration-350"/>
-                </a>
-    </span>
+                <x-application-logo
+                    class="w-14 h-14 fill-current text-gray-700 hover:text-teal-700 transition duration-350"/>
+            </a>
+        </p>
 
         <ul class="mt-6 space-y-1">
             <li>
@@ -17,7 +17,7 @@
                 >
                     <i class="fa-solid fa-cog group-hover:text-zinc-500"></i>
 
-                    General
+                    Admin Home
                 </a>
             </li>
 
@@ -138,7 +138,7 @@
             <a
                 class="block px-4 py-2 [text-align:_inherit] text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
                 href="{{ route('logout') }}"
-                             onclick="event.preventDefault();
+                onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                 <i class="fa-solid fa-sign-out group-hover:text-zinc-500"></i>
 

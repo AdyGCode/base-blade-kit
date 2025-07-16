@@ -11,7 +11,7 @@
         </header>
         <div  class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <article
-            class="items-center rounded-lg bg-white shadow align-middle hover:bg-zinc-700 transition-colors duration-500 group overflow-hidden border border-zinc-700/75">
+            class="items-center rounded-lg bg-white shadow hover:shadow-none align-middle hover:bg-zinc-700 transition duration-500 group overflow-hidden border border-zinc-700/75">
             <div class="flex">
                 <header
                     class="w-1/4 bg-zinc-700 text-white  flex items-center justify-center py-6 transition-colors duration-500">
@@ -31,7 +31,7 @@
         </article>
 
         <article
-            class="items-center rounded-lg bg-white shadow align-middle hover:bg-zinc-700 transition-colors duration-500 group overflow-hidden border border-zinc-700/75">
+            class="items-center rounded-lg bg-white shadow hover:shadow-none align-middle hover:bg-zinc-700 transition-colors duration-500 group overflow-hidden border border-zinc-700/75">
             <div class="flex">
                 <header
                     class="w-1/4 bg-zinc-700 text-white  flex items-center justify-center py-6 transition-colors duration-500">
@@ -51,7 +51,7 @@
         </article>
 
         <article
-            class="items-center rounded-lg bg-white shadow align-middle hover:bg-zinc-700 transition-colors duration-500 group overflow-hidden border border-zinc-700/75">
+            class="items-center rounded-lg bg-white shadow hover:shadow-none align-middle hover:bg-zinc-700 transition-colors duration-500 group overflow-hidden border border-zinc-700/75">
             <div class="flex">
                 <header
                     class="w-1/4 bg-zinc-700 text-white  flex items-center justify-center py-6 transition-colors duration-500">
@@ -60,7 +60,7 @@
 
                 <section class="w-3/4 p-6 flex flex-col justify-center">
                     <p class="text-2xl font-bold text-gray-800 group-hover:text-white mb-1 transition-colors duration-500">
-                        23,678
+                        {{ $userCount }}
                     </p>
 
                     <p class="text-gray-600 group-hover:text-white text-sm uppercase tracking-wide transition-colors duration-500">
@@ -71,7 +71,7 @@
         </article>
 
         <article
-            class="items-center rounded-lg bg-white shadow align-middle hover:bg-zinc-700 transition-colors duration-500 group overflow-hidden border border-zinc-700/75">
+            class="items-center rounded-lg bg-white shadow hover:shadow-none align-middle hover:bg-zinc-700 transition-colors duration-500 group overflow-hidden border border-zinc-700/75">
             <div class="flex">
                 <header
                     class="w-1/4 bg-zinc-700 text-white  flex items-center justify-center py-6 transition-colors duration-500">
@@ -91,7 +91,7 @@
         </article>
 
         <article
-            class="items-center rounded-lg bg-white shadow align-middle hover:bg-zinc-700 transition-colors duration-500 group overflow-hidden border border-zinc-700/75">
+            class="items-center rounded-lg bg-white shadow hover:shadow-none align-middle hover:bg-zinc-700 transition-colors duration-500 group overflow-hidden border border-zinc-700/75">
             <div class="flex">
                 <header
                     class="w-1/4 bg-zinc-700 text-white  flex items-center justify-center py-6 transition-colors duration-500">
@@ -111,7 +111,7 @@
         </article>
 
         <article
-            class="items-center rounded-lg bg-white shadow align-middle hover:bg-zinc-700 transition-colors duration-500 group overflow-hidden border border-zinc-700/75">
+            class="items-center rounded-lg bg-white shadow hover:shadow-none align-middle hover:bg-zinc-700 transition-colors duration-500 group overflow-hidden border border-zinc-700/75">
             <div class="flex">
                 <header
                     class="w-1/4 bg-zinc-700 text-white  flex items-center justify-center py-6 transition-colors duration-500">
@@ -131,7 +131,7 @@
         </article>
 
         <article
-            class="items-center rounded-lg bg-white shadow align-middle hover:bg-zinc-700 transition-colors duration-500 group overflow-hidden border border-zinc-700/75">
+            class="items-center rounded-lg bg-white shadow hover:shadow-none align-middle hover:bg-zinc-700 transition-colors duration-500 group overflow-hidden border border-zinc-700/75">
             <div class="flex">
                 <header
                     class="w-1/4 bg-zinc-700 text-white  flex items-center justify-center py-6 transition-colors duration-500">

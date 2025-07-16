@@ -497,22 +497,16 @@ use App\Http\Controllers\StaticPageController;
 use Illuminate\Support\Facades\Route;
 ```
 
-Add the Home (Welcome) page route
+Update the Home (Welcome) page route
 ```php
 
-Route::get('/', [StaticPageController::class, 'home'])->name('home');
+Route::get('/', [StaticPageController::class, 'home'])
+    ->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])
+        ->name('dashboard');
 });
-
-Route::middleware(['auth', 'verified'])
-    ->prefix('admin')
-    ->name('admin.')
-    ->group(function () {
-//        Route::get('/admin', [AdminPageController::class, 'admin'])->name('admin');
-    });
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -523,7 +517,21 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/auth.php';
 ```
 
-Create a Dashboard Controller:
+## Test USers
+
+For this template, we have the following test users:
+
+| Name            | Username               | Password  | Role        | Verified |
+|-----------------|------------------------|-----------|-------------|----------|
+| Super Admin     | supervisor@example.com | Password1 | Super-Admin | Y        |
+| Admin I Strator | admin@example.com      | Password1 | Admin       | Y        |
+| Staff User      | staff@example.com      | Password1 | Staff       | Y        |
+| Client User     | client@example.com     | Password1 | Client      | Y        |
+| Client User II  | client2@example.com    | Password1 | Client      | N        |
+| Client User III | client3@example.com    | Password1 | Client      | N        |
+
+
+### Create a Dashboard Controller:
 
 ```shell
 php artisan make DashboardController
@@ -546,6 +554,9 @@ class DashboardController extends Controller
 }
 
 ```
+
+We updated the dashboard route in the previous step.
+
 
 ## Admin Page Layout
 
@@ -590,7 +601,7 @@ in the admin/layouts/admin-layout.blade.php add:
 ```
 
 
-Edit the routes/web.php file, and fFind the lines:
+Edit the routes/web.php file, and find the lines:
 
 ```php
 
@@ -601,7 +612,7 @@ Route::middleware('auth')->group(function () {
 });
 ```
 
-Immediately BEFORE this add:
+Immediately BEFORE this, add:
 
 ```php
 Route::middleware(['auth', 'verified'])
@@ -615,6 +626,7 @@ Route::middleware(['auth', 'verified'])
 
 
 
+---
 
 - Blade Templates circa Laravel 11
 - Navigation bar on guest and app layouts
