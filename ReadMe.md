@@ -148,7 +148,7 @@ The Laravel "Base Blade Kit" Starter Kit is open-sourced software licensed under
 
 [licence-url]: https://github.com/adygcode/base-blade-kit/blob/main/License.md
 
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: _docs/images/screenshot.png
 
 [Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
 
