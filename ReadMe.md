@@ -38,6 +38,18 @@ The project was developed as a re-write of the "Retro Blade Kit" also by Adrian 
 
 It provides a base template for the creation of a "SaaS" style application, omitting sections that may tie to a specific vendor such as a payment system. 
 
+#### General Welcome/Home Page
+
+![Welcome Page Screenshot](_docs/images/screenshot.png)
+
+#### Authenticated User Dashboard
+
+![Authenticated User Dashboard](_docs/images/screenshot-d.png)
+
+#### Admin Dashboard
+
+![Administration Dashboard](_docs/images/screenshot-a.png)
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
