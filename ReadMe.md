@@ -45,8 +45,6 @@ It provides a base template for the creation of a "SaaS" style application, omit
 
 ## Table of Contents
 
-TO DO: Add extra, or update the contents as needed, then remove this line.
-
 - [Description](#description)
 - [Installation](#installation)
 - [Credits](#credits)
@@ -90,7 +88,8 @@ This template is built using:
 - PHP: Hypertext Preprocessor. (n.d.). Www.php.net. https://php.net
 - Professional README Guide. (n.d.). Coding-Boot-Camp.github.io. Retrieved April 15, 2024, from https://coding-boot-camp.github.io/full-stack/github/professional-guide
 - TailwindCSS. (2023). Tailwind CSS - Rapidly build modern websites without ever leaving your HTML. Tailwindcss.com. https://tailwindcss.com/
-- HyperUI
+- Free Open Source Tailwind CSS v4 Components | HyperUI. (2025). HyperUI. https://www.hyperui.dev/
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
