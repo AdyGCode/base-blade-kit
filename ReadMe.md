@@ -1,669 +1,179 @@
+# Laravel Base Blade Kit (BBK)
+<a name="readme-top" id="readme-top"></a>
+
+A Laravel Blade Template with Sanctum Authentication built in.
+
+*Based on the Blade & Breeze Starter Kit provided with Laravel versions before Laravel 12.*
+
+### Built With
+
+[![PHP][Php.com]][Php-url]
+[![Laravel][Laravel.com]][Laravel-url]
+[![Tailwindcss][Tailwindcss.com]][Tailwindcss-url]
+[![Livewire][Livewire.com]][Livewire-url]
+[![Inertia][Inertia.com]][Inertia-url]
+
+### Editor of choice
+
+[![PhpStorm][PhpStorm.com]][PhpStorm-url] 
+[![JetBrains][JetBrains.com]][JetBrains-url]
 
 
-## Install Laravel installer & Update
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-```shell≈
-composer global require laravel/installer
-composer global update
+
+
+## Description
+
+A starter kit for Laravel based on Laravel's Blade templating engine, TailwindCSS v4, HyperUI components and FontAwesome Free icons.
+
+It contains three sections:
+
+- Static Layout, Controller and Pages
+- Authenticated User Layout and Pages
+- Administration Layout, Controller and Pages
+
+The project was developed as a re-write of the "Retro Blade Kit" also by Adrian Gould.
+
+It provides a base template for the creation of a "SaaS" style application, omitting sections that may tie to a specific vendor such as a payment system. 
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+## Table of Contents
+
+TO DO: Add extra, or update the contents as needed, then remove this line.
+
+- [Description](#description)
+- [Installation](#installation)
+- [Credits](#credits)
+- [Licence](#licence)
+- [Badges](#badges)
+- [Tests](#tests)
+- [Contact](#contact)
+
+## Installation
+
+
+### Via Laravel Herd
+
+One-click install a new application using this starter kit through [Laravel Herd](https://herd.laravel.com):
+
+<a href="https://herd.laravel.com/new?starter-kit=adygcode/base-blade-kit"><img src="https://img.shields.io/badge/Install%20with%20Herd-fff?logo=laravel&logoColor=f53003" alt="Install with Herd"></a>
+
+### Via the Laravel Installer
+
+Create a new Laravel application using this starter kit through the official [Laravel Installer](https://laravel.com/docs/12.x/installation#installing-php):
+
+```bash
+  laravel new my-app --using=adygcode/base-blade-kit
 ```
 
-## Create Application from Scratch
-
-```shell
-laravel new l12-base
-```
-
-| Step                  | Value    |
-|-----------------------|----------|
-| Project Name          | l12-base |
-| Starter Kit           | None     |
-| Test Framework        | Pest     |
-| Database (dev)        | SQLite   |
-| NPM install and Build | Yes      |
+Replace `my-app` with the name of your project, using kebab-case.
 
 
-## Add Sanctum, and other Packages
-
-We will add:
-- [Laravel Breeze](https://laravel.com/docs/sanctum) (with Sanctum Authentication)
-- Laravel Pint (Code Tidy +)
-- [Laravel PHP Stan](https://github.com/larastan/larastan) (Static Testing)
-- [Laravel Debug Bar](https://laraveldebugbar.com) (Development toolbar)
-- [Laravel Livewire](https://livewire.laravel.com) (SPA components in PHP)
-- [Laravel Telescope](https://laravel.com/docs/telescope) (Application Monitoring)
-
-Note that with Windows Systems not having the `pcntl` extension for PHP we cannot install Laravel Pail.
-
-For non Windows users, or those using Windows Subsystem for Linux, please feel free to install and use Laravel Pail, a log streaming package.
-
----
-
-### Installing Breeze
-
-```shell
-cd l12-base
-
-composer require laravel/breeze
-
-php artisan breeze:install
-```
-
-| Step       | Value              |
-|------------|--------------------|
-| Framework  |  Blade with Alpine |
-| Dark Mode  |  No                |
-| Testing    |  Pest              |
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-#### Remove the postcss.config.js
-
-```shell
-rm postconfig.config.js
-```
-
-#### Add FontAwesome NPM Package
-
-```shell
-npm install @forawesome/fontawesome-free
-npm update
-```
-
-#### Update any node dependencies
-
-```shell
-npm update
-```
-
-#### Update the following files:
-
-- vite.config.js
-- tailwind.config.js
-- resources/css/app.css
-- resources/js/app.js
 
 
-##### vite.config.js
-Open the `vite.config.js` file and update the contents to be:
+## Credits
 
-```js
-import {defineConfig} from 'vite';
-import laravel from 'laravel-vite-plugin';
-import tailwindcss from '@tailwindcss/vite';
+This template is built using:
 
-export default defineConfig({
-    plugins: [
-        laravel({
-            input: ['resources/css/app.css', 'resources/js/app.js'],
-            refresh: true,
-        }),
-        tailwindcss(),
-    ]
-});
-```
+- Font Awesome. (n.d.). Fontawesome.com. https://fontawesome.com
+- Laravel - The PHP Framework For Web Artisans. (2011). Laravel.com. https://laravel.com
+- Laravel Bootcamp - Learn the PHP Framework for Web Artisans. (n.d.). Bootcamp.laravel.com. https://bootcamp.laravel.com/
+- PHP: Hypertext Preprocessor. (n.d.). Www.php.net. https://php.net
+- Professional README Guide. (n.d.). Coding-Boot-Camp.github.io. Retrieved April 15, 2024, from https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide
+- TailwindCSS. (2023). Tailwind CSS - Rapidly build modern websites without ever leaving your HTML. Tailwindcss.com. https://tailwindcss.com/
+- HyperUI
 
-##### tailwind.config.js
-
-Open the `tailwind.config.js` file and update the contents to be:
-
-```js
-import defaultTheme from 'tailwindcss/defaultTheme';
-import forms from '@tailwindcss/forms';
-
-/** @type {import('tailwindcss').Config} */
-export default {
-    content: [
-        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
-        './storage/framework/views/*.php',
-        './resources/views/**/*.blade.php',
-    ],
-
-    theme: {
-        extend: {
-            fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-            },
-        },
-    },
-
-    plugins: [forms],
-};
-```
-
-##### resources/css/app.css
-
-Open the `resources/css/app.css` file and update the contents to be:
-
-```css
-@import 'tailwindcss';
-@import "@fortawesome/fontawesome-free/css/all.css";
-
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol', 'Noto Color Emoji';
-}
-```
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-##### resources/js/app.js
 
-Open the `resources/js/app.js` file and update the contents to be:
+## Badges
 
-```js
-import './bootstrap';
-```
+[![Forks][forks-shield]][forks-url]
+[![Issues][issues-shield]][issues-url]
+[![Educational Community Licence][licence-shield]][licence-url]
 
----
 
-### Install Laravel Pint (Code Tidy +)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-Install the composer package for "development mode only":
 
-```shell
-composer require laravel/pint --dev
-```
+## Tests
 
----
+TBD
 
-### Install Laravel Stan (Static Testing)
 
-Install the composer package for "development mode only",
-and create new file `phpstan.neon` in the root folder of the project:
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-```shell
-composer require --dev "larastan/larastan"
 
-touch phpstan.neon
-```
+## Contact
 
-Edit the `phpstan.neon` (this is a YAML style file) and add:
+Adrian Gould: Lecturer (ASL1), [North Metropolitan TAFE](https://northmetrotafe.wa.edu.au), Perth WA
+- GitHub Pages: [https://adygcode.github.io](https://adygcode.github.io)
+- GitHub Repos: [https://github.com/AdyGCode](https://github.com/AdyGCode)
+- Starter Kit Repo: [Retro Blade Starter Kit](https://github.com/AdyGCode/retro-blade-kit)
 
-```neon
-includes:
-    - vendor/larastan/larastan/extension.neon
-    - vendor/nesbot/carbon/extension.neon
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-parameters:
 
-    paths:
-        - app/
 
-    # Level 10 is the highest level
-    level: 5
+## Licence
 
-#    ignoreErrors:
-#        - '#PHPDoc tag @var#'
-#
-#    excludePaths:
-#        - ./*/*/FileToBeExcluded.php
-```
+The Laravel "Base Blade Kit" Starter Kit is open-sourced software licensed under the MIT license.
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 ---
 
-### Install Laravel Debugbar (Development toolbar)
 
-Install the composer package for "development mode only":
+[forks-shield]: http://img.shields.io/github/forks/adygcode/base-blade-kit.svg?style=for-the-badge
 
-```shell
-composer require barryvdh/laravel-debugbar --dev
-```
+[forks-url]: https://github.com/AdyGCode/base-blade-kit/network/members
 
----
+[issues-shield]: http://img.shields.io/github/issues/adygcode/base-blade-kit.svg?style=for-the-badge
 
-### Install Laravel Livewire (SPA components in PHP)
+[issues-url]: https://github.com/adygcode/base-blade-kit/issues
 
-Install Livewire and publish its assets:
+[licence-shield]: https://img.shields.io/github/license/adygcode/base-blade-kit.svg?style=for-the-badge
 
-```shell
-composer require livewire/livewire
+[licence-url]: https://github.com/adygcode/base-blade-kit/blob/main/License.md
 
-php artisan vendor:publish --tag=livewire:assets --ansi --force
-```
+[product-screenshot]: images/screenshot.png
 
----
+[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
 
-### Install Laravel Telescope (Application Monitoring)
+[Laravel-url]: https://laravel.com
 
+[Tailwindcss.com]: https://img.shields.io/badge/Tailwindcss-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white
 
+[Tailwindcss-url]: https://tailwindcss.com
 
-```shell
-composer require laravel/telescope
-php artisan telescope:install
-php artisan migrate
-```
+[Livewire.com]: https://img.shields.io/badge/Livewire-4E56A6?style=for-the-badge&logo=livewire&logoColor=white
 
-## Publish Assets (Error messages, pagination et al.)
+[Livewire-url]: https://livewire.laravel.com
 
-We will publish a number of assets so that they may be customized as we write our code.
+[Inertia.com]: https://img.shields.io/badge/Inertia-9553E9?style=for-the-badge&logo=inertia&logoColor=white
 
-```shell
-php artisan vendor:publish --tag=laravel-errors
-php artisan vendor:publish --tag=laravel-mail
-php artisan vendor:publish --tag=laravel-pagination
-php artisan vendor:publish --tag=livewire:pagination
-```
+[Inertia-url]: https://inertiajs.com
 
+[Php.com]: https://img.shields.io/badge/Php-777BB4?style=for-the-badge&logo=php&logoColor=white
 
-### Execute First Static Analysis
+[Php-url]: https://inertiajs.com
 
-Run PHPStan using:
+[JetBrains.com]: https://img.shields.io/badge/JetBrains-000000?style=for-the-badge&logo=jetbrains&logoColor=white
 
-```shell
-./vendor/bin/phpstan analyse --memory-limit=2G
-```
+[JetBrains-url]: https://jetbrains.com
 
-> ###### Note: 
-> 
-> The memory limit of 2GB is needed, the default 128MB is simply not enough for 
-> analysing Laravel Apps.
+[PhpStorm.com]: https://img.shields.io/badge/phpstorm-000000?style=for-the-badge&logo=phpstorm&logoColor=white
 
-
-Any errors? Fix them at this point.
-
-#### Must Verify Email Error
-
-The following is a fix we discovered, **BUT** it is important **NOT** to use this for **EVERY** error 
-you encounter, as that defeats the purpose of the static analysis:
-
-Open the `app/Http/Controllers/Auth/VerifyEmailController.php` file and locate the lines:
-
-```php
-        if ($request->user()->markEmailAsVerified()) {
-            event(new Verified($request->user()));
-        }
-```
-
-Add a single line as shown below:
-
-```php
-        if ($request->user()->markEmailAsVerified()) {
-        /** @phpstan-ignore-next-line  */
-            event(new Verified($request->user()));
-        }
-```
-
-> ###### Aside:
-> 
-> We may need to see of Taylor and the Laravel crew will look
-> at this error and publish a patch.
-
-
-### Execute First Laravel Pint 
-
-Execute Laravel pint to fix any code structure errors.
-
-This will ensure your code matches the Laravel style.
-
-```shell
-./vendor/bin/pint
-```
-
-## Execute the Development Instance
-
-We can run a development server in a number of different ways.
-
-For this we will use the Terminal and execute the "dev" server script.
-
-Either:
-Split the current terminal into 2 halves, or
-Open a new terminal instance
-
-Verify you are in the correct folder, if not use the cd command:
-
-> This presumes you are in a folder location such as `Source/Repos`.
-
-```shell
-cd l12-base
-composer run dev
-```
-
-This will execute the dev script that is in the `composer.json` file.
-
-After a few moments, you will be able to open the `http://localhost:8000` location in a 
-browser and see the default home page:
-
-![img.png](_docs/images/default-landing-page.png)
-
-## Adding Default Users
-
-To make it easier to test the application we will add a "seeder" that will fill the database 
-with some default users.
-
-This is ideal for the development and testing process.
-
-### Create a User Seeder
-
-Execute:
-
-```shell
-php artisan make:seeder UserSeeder
-```
-
-Open the newly created `database/seeders/UserSeeder.php` file and update the `run` method to 
-read:
-
-```php
-$seedUsers = [
-            [
-                'id' => 100,
-                'name' => 'Admin I Strator',
-                'email' => 'admin@example.com',
-                'password' => 'Password1',
-                'email_verified_at' => now(),
-                'roles' => ['admin',],
-            ],
-
-            [
-                'id' => 200,
-                'name' => 'Staff User',
-                'email' => 'staff@example.com',
-                'password' => 'Password1',
-                'email_verified_at' => now(),
-                'roles' => ['staff',],
-            ],
-
-            [
-                'id' => 201,
-                'name' => 'Client User',
-                'email' => 'client@example.com',
-                'password' => 'Password1',
-                'email_verified_at' => null,
-                'roles' => ['client',],
-            ],
-        ];
-
-        foreach ($seedUsers as $newUser) {
-
-            // grab the roles from the seed users
-            $roles = $newUser['roles'];
-            unset($newUser['roles']);
-
-            $user = User::updateOrCreate(
-                ['id' => $newUser['id']],
-                $newUser
-            );
-
-            // Uncomment this line when using Spatie Permissions
-            // $user->assignRole($roles);
-
-        }
-
-        // Uncomment the line below to create (10) randomly named users using the User Factory.
-        // User::factory(10)->create();
-```
-
-To run this seeder only we can use:
-
-```shell
-php artisan db:seed UserSeeder
-```
-
-To add the seeder to execute when performing a fresh migration and seed use:
-
-Edit the `database/migrations/DatabaseSeeder.php` file, and update the code tobe:
-
-```php
-    public function run(): void
-    {
-
-        $this->call(
-            [
-                // When using Spatie Permissions, perform the Role / Permission seeding FIRST
-                UserSeeder::class,
-                // Add further seeder classes here                
-            ]
-        );
-
-    }
-```
-
-
-> ### ⚠️ WARNING:
->
-> This performs a total database reset and SHOULD NOT be used on production applications.
->
->
-> To execute this and reset the database and any logged in sessions in one go use:
-> 
-> ```shell
-> php artisan migrate:fresh --seed
-> ```
-
-
-## Add Static page Controller
-
-We will creat a static page controller that will handle pages that do not perform any 
-add/edit/delete actions.
-
-Generally, we look at these pages being:
-
-- Home (Welcome)
-- Privacy
-- License
-- About
-- Contact Us
-- Terms
-
-and so on.
-
-Create the static page controller using:
-
-```shell
-php artisan make:controller StaticPageController
-```
-
-> ###### Important:
->  
-> Always name controllers with `Controller` as the last word in the name.
-
-### Add the Static Page Methods to the Controller
-
-Open the new `app/Http/Controllers/StatsicPageController.php` file and add the following 
-static page methods:
-
-```php
-    /**
-     * Display site 'Welcome/Index' page
-     * 
-     * @return View
-     */
-    public function home(): View
-    {
-        return view('static.welcome');
-    }
-
-    /**
-     * Display 'About Us' page
-     * 
-     * @return View
-     */
-    public function about(): View
-    {
-        // return view('static.about');
-    }
-```
-
-### Edit the Routes
-
-Open the `routes/web.php` file and update it..
-
-Add the required `use` lines:
-
-```php
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\StaticPageController;
-use Illuminate\Support\Facades\Route;
-```
-
-Update the Home (Welcome) page route
-```php
-
-Route::get('/', [StaticPageController::class, 'home'])
-    ->name('home');
-
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'dashboard'])
-        ->name('dashboard');
-});
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-require __DIR__ . '/auth.php';
-```
-
-## Test USers
-
-For this template, we have the following test users:
-
-| Name            | Username               | Password  | Role        | Verified |
-|-----------------|------------------------|-----------|-------------|----------|
-| Super Admin     | supervisor@example.com | Password1 | Super-Admin | Y        |
-| Admin I Strator | admin@example.com      | Password1 | Admin       | Y        |
-| Staff User      | staff@example.com      | Password1 | Staff       | Y        |
-| Client User     | client@example.com     | Password1 | Client      | Y        |
-| Client User II  | client2@example.com    | Password1 | Client      | N        |
-| Client User III | client3@example.com    | Password1 | Client      | N        |
-
-
-### Create a Dashboard Controller:
-
-```shell
-php artisan make DashboardController
-```
-
-Edit the new `app/Http/Controllers/DashboardController.php` file, adding the missing lines 
-from the code below:
-
-```php
-class DashboardController extends Controller
-{
-
-    public function dashboard(): View
-    {
-        $user = auth()->user();
-
-        return view('static.dashboard')
-            ->with('user', $user);
-    }
-}
-
-```
-
-We updated the dashboard route in the previous step.
-
-
-## Admin Page Layout
-
-- Create Admin Layout Component
-- Move the view to resource/views/layout and rename to admin.blade.php
-- Create an Admin Page Controller
-- Create Admin Home page view
-- Create Admin Navigation layout view
-- Create admin route in routes/web.php
-
-```shell
-php artisan make:component AdminLayout
-
-mv resources/views/components/admin-layout.blade.php resources/views/layout/admin.blade.php
-
-phg artisan make:controller Admin/AdminController
-
-mkdir resources/views/admin
-touch resources/views/admin/index.blade.php
-touch resources/views/layouts/admin-navigation.blade.php
-```
-
-#### Admin Page Layout
-
-In the admin/index.blade.php file add:
-
-```php
-
-
-```
-
-
-
-#### Admin Navigation Layout
-
-in the admin/layouts/admin-layout.blade.php add:
-
-
-```php
-
-
-```
-
-
-Edit the routes/web.php file, and find the lines:
-
-```php
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-```
-
-Immediately BEFORE this, add:
-
-```php
-Route::middleware(['auth', 'verified'])
-    ->prefix('admin')
-    ->name('admin.')
-    ->group(function () {
-        Route::get('/', [AdminController::class, 'index'])->name('index');
-    });
-```
-
-
-
-
----
-
-- Blade Templates circa Laravel 11
-- Navigation bar on guest and app layouts
-- Footer in guest and app layouts
-- Email Verification enabled
-- [Font Awesome 6 (Free)](https://fontawesome.com)
-
-
-
-
-# After Cloning
-
-The following steps will be done:
-
-- cd into folder
-- create a database.sqlite file
-- install npm packages
-- install composer packages
-- migrate and seed
-```shell
-cd FOLDRE_NAME
-touch database/database.sqlite
-npm i
-npm update
-composer install
-composer update
-php artisan migrate:fresh --seed
-
-```
-
-
-## Tutorials, Articles & References
-
-Tutorials and Articles on the individual components
-
-McDougall, S. (2022, June 20). Running PHPStan on max with Laravel - Laravel News. Laravel News. https://laravel-news.com/running-phpstan-on-max-with-laravel
-
-Laravel.io. (2024). How to get your Laravel app from 0 to 9 with Larastan | Laravel.io. Laravel.io. https://laravel.io/articles/how-to-get-your-laravel-app-from-0-to-9-with-larastan
-
-Larastan. (2025, June 20). GitHub - larastan/larastan: ⚗️ Adds code analysis to Laravel improving developer productivity and code quality. GitHub. https://github.com/larastan/larastan
+[PhpStorm-url]: https://www.jetbrains.com/phpstorm/

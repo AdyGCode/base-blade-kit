@@ -9,127 +9,101 @@
             </a>
         </p>
 
-        <ul class="mt-6 space-y-1">
-            <li>
-                <a
-                    href="#"
-                    class="block bg-gray-200 px-4 py-2 text-sm font-medium text-gray-900"
+        <section class="mt-6 space-y-1">
+
+            <x-side-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.*')">
+                <i class="fa-solid fa-cog group-hover:text-zinc-500"></i>
+                {{ __('Admin Home') }}
+            </x-side-nav-link>
+
+            <x-side-nav-link :href="route('dashboard')" :active="request()->routeIs('home')">
+                <i class="fa-solid fa-dashboard group-hover:text-zinc-500"></i>
+                {{ __('Dashboard') }}
+            </x-side-nav-link>
+
+            <details class="group [&_summary::-webkit-details-marker]:hidden">
+                <summary
+                    class="flex cursor-pointer items-center justify-between px-4 py-2
+                           text-gray-500 hover:text-gray-700
+                            hover:bg-gray-200
+                            transition duration-150"
                 >
-                    <i class="fa-solid fa-cog group-hover:text-zinc-500"></i>
+                        <span class="text-sm font-medium hover:text-zinc-500 transition duration-150">
+                            <i class="fa-solid fa-users"></i>
+                            {{ __('Users') }}
+                        </span>
 
-                    Admin Home
-                </a>
-            </li>
-
-            <li>
-                <details class="group [&_summary::-webkit-details-marker]:hidden">
-                    <summary
-                        class="flex cursor-pointer items-center justify-between px-4 py-2
-                             text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-                    >
-                        <span class="text-sm font-medium">
-                            <i class="fa-solid fa-users  group-hover:text-zinc-500"></i>
-                            Users </span>
-
-                        <span class="shrink-0 transition duration-300 group-open:-rotate-180">
+                    <span class="shrink-0 transition duration-300 group-open:-rotate-180">
                           <i class="fa-solid fa-chevron-down text-sm"></i>
                         </span>
-                    </summary>
+                </summary>
 
-                    <ul class="mt-2 space-y-1">
-                        <li>
-                            <a
-                                href="#"
-                                class="block px-12 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-                            >
-                                Accounts
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                class="block px-12 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-                            >
-                                Suspended
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                class="block px-12 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-                            >
-                                Banned Users
-                            </a>
-                        </li>
+                <section class="mt-2 space-y-1">
 
-                    </ul>
-                </details>
-            </li>
+                        <x-side-nav-link :href="route('home')" :active="request()->routeIs('home')" class="px-12 py-2">
+                            {{ __('Accounts') }}
+                        </x-side-nav-link>
 
-            <li class="group">
-                <a
-                    href="#"
-                    class="block px-4 py-2 text-sm font-medium
-                         text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                        <x-side-nav-link :href="route('home')" :active="request()->routeIs('home')" class="px-12 py-2">
+                            {{ __('Suspended') }}
+                        </x-side-nav-link>
+
+                        <x-side-nav-link :href="route('home')" :active="request()->routeIs('home')" class="px-12 py-2">
+                            {{ __('Banned Users') }}
+                        </x-side-nav-link>
+
+                </section>
+
+            </details>
+
+            <x-side-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                <i class="fa-solid fa-laugh group-hover:text-zinc-500"></i>
+                {{ __('Jokes') }}
+            </x-side-nav-link>
+
+            <x-side-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                <i class="fa-solid fa-cat group-hover:text-zinc-500"></i>
+                {{ __('Categories') }}
+            </x-side-nav-link>
+
+            <details class="group [&_summary::-webkit-details-marker]:hidden">
+                <summary
+                    class="flex cursor-pointer items-center justify-between px-4 py-2
+                         text-gray-500 hover:text-gray-700
+                         hover:bg-gray-200
+                         transition duration-150"
                 >
-                    <i class="fa-solid fa-laugh  group-hover:text-zinc-500"></i>
-                    Jokes
-                </a>
-            </li>
-
-            <li class="group">
-                <a
-                    href="#"
-                    class="block px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-                >
-
-                    <i class="fa-solid fa-cat  group-hover:text-zinc-500"></i>
-                    Categories
-                </a>
-            </li>
-
-            <li>
-                <details class="group [&_summary::-webkit-details-marker]:hidden">
-                    <summary
-                        class="flex cursor-pointer items-center justify-between px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-                    >
-                        <span class="text-sm font-medium">
-                            <i class="fa-solid fa-shield group-hover:text-zinc-500"></i>
-                            Security
+                        <span class="text-sm font-medium hover:text-zinc-500 transition duration-150">
+                            <i class="fa-solid fa-shield"></i>
+                            {{ __('Security') }}
                         </span>
 
-                        <span class="shrink-0 transition duration-300 group-open:-rotate-180">
+                    <span class="shrink-0 transition duration-300 group-open:-rotate-180">
                           <i class="fa-solid fa-chevron-down text-sm"></i>
                         </span>
-                    </summary>
+                </summary>
 
-                    <ul class="mt-2 space-y-1">
-                        <li>
-                            <a
-                                href="#"
-                                class="block px-12 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-                            >
-                                Roles
-                            </a>
-                        </li>
+                <section class="mt-2 space-y-1">
+                    <x-side-nav-link :href="route('home')" :active="request()->routeIs('home')" class="px-12 py-2">
+                        {{ __('Roles') }}
+                    </x-side-nav-link>
 
-                        <li>
-                            <a
-                                href="#"
-                                class="block px-12 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-                            >
-                                Permissions
-                            </a>
-                        </li>
+                    <x-side-nav-link :href="route('home')" :active="request()->routeIs('home')" class="px-12 py-2">
+                        {{ __('Permissions') }}
+                    </x-side-nav-link>
+                </section>
 
-                    </ul>
-                </details>
-            </li>
+            </details>
 
-        </ul>
+            <x-side-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                <i class="fa-solid fa-plane-arrival group-hover:text-zinc-500"></i>
+                {{ __('Link X') }}
+            </x-side-nav-link>
+
+        </section>
     </div>
 
-    <div class="sticky inset-x-0 bottom-0 border-t border-gray-200">
+    <section class="sticky inset-x-0 bottom-0 border-t border-gray-200">
 
         <!-- Authentication -->
         <form method="POST" action="{{ route('logout') }}">
@@ -160,5 +134,5 @@
                 </p>
             </div>
         </a>
-    </div>
+    </section>
 </div>
