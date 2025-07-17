@@ -1,5 +1,6 @@
 # Laravel Base Blade Kit (BBK)
-<a name="readme-top" id="readme-top"></a>
+<a name="top" id="top" ></a>
+
 
 A Laravel Blade Template with Sanctum Authentication built in.
 
@@ -19,7 +20,7 @@ A Laravel Blade Template with Sanctum Authentication built in.
 [![JetBrains][JetBrains.com]][JetBrains-url]
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
@@ -38,7 +39,7 @@ The project was developed as a re-write of the "Retro Blade Kit" also by Adrian 
 It provides a base template for the creation of a "SaaS" style application, omitting sections that may tie to a specific vendor such as a payment system. 
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
@@ -74,7 +75,7 @@ Create a new Laravel application using this starter kit through the official [La
 Replace `my-app` with the name of your project, using kebab-case.
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
@@ -87,11 +88,11 @@ This template is built using:
 - Laravel - The PHP Framework For Web Artisans. (2011). Laravel.com. https://laravel.com
 - Laravel Bootcamp - Learn the PHP Framework for Web Artisans. (n.d.). Bootcamp.laravel.com. https://bootcamp.laravel.com/
 - PHP: Hypertext Preprocessor. (n.d.). Www.php.net. https://php.net
-- Professional README Guide. (n.d.). Coding-Boot-Camp.github.io. Retrieved April 15, 2024, from https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide
+- Professional README Guide. (n.d.). Coding-Boot-Camp.github.io. Retrieved April 15, 2024, from https://coding-boot-camp.github.io/full-stack/github/professional-guide
 - TailwindCSS. (2023). Tailwind CSS - Rapidly build modern websites without ever leaving your HTML. Tailwindcss.com. https://tailwindcss.com/
 - HyperUI
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
@@ -102,7 +103,7 @@ This template is built using:
 [![Educational Community Licence][licence-shield]][licence-url]
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 ## Tests
@@ -110,7 +111,7 @@ This template is built using:
 TBD
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 ## Contact
@@ -120,7 +121,7 @@ Adrian Gould: Lecturer (ASL1), [North Metropolitan TAFE](https://northmetrotafe.
 - GitHub Repos: [https://github.com/AdyGCode](https://github.com/AdyGCode)
 - Starter Kit Repo: [Retro Blade Starter Kit](https://github.com/AdyGCode/retro-blade-kit)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
@@ -129,7 +130,7 @@ Adrian Gould: Lecturer (ASL1), [North Metropolitan TAFE](https://northmetrotafe.
 The Laravel "Base Blade Kit" Starter Kit is open-sourced software licensed under the MIT license.
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
