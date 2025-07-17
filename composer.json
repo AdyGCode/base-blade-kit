@@ -1,15 +1,15 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/laravel",
+    "name": "adygcode/base-blade-kit",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "A Laravel Blade Template with Sanctum Authentication built in",
     "keywords": [
         "laravel",
         "framework"
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.2",
+        "php": ">=8.2",
         "laravel/breeze": "^2.3",
         "laravel/framework": "^12.0",
         "laravel/telescope": "^5.10",
@@ -63,6 +63,10 @@
             "Composer\\Config::disableProcessTimeout",
             "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite"
         ],
+        "dev-linux": [
+            "Composer\\Config::disableProcessTimeout",
+            "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74,#74fdc5\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"npm run dev\" \"mailpit --smtp:0.0.0.0:2525\" --names=server,queue,logs,vite,mailpit"
+        ],
         "test": [
             "@php artisan config:clear --ansi",
             "@php artisan test"
@@ -72,6 +76,9 @@
         ]
     },
     "scripts-descriptions": {
+        "dev": "Run Dev Env: omitsLaravel Pail, includes MailPit",
+        "dev-base": "Run Dev Env: omits MailPit, Laravel Pail.",
+        "dev-linux": "Run Dev Env: includes MailPit, Laravel Pail.",
         "phpstan": "Run PHPStan static analysis against your application.",
         "post-autoload-dump": "Executes automatically after a composer dump-autoload",
         "post-update-cmd": "Executes automatically after a composer update",

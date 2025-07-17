@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Number;
 use Illuminate\View\View;
 
@@ -14,7 +13,7 @@ class AdminController extends Controller
     public function index(): View
     {
         $userCount = User::count();
-        $userSuspendedCount = User::where('suspended',1)->count();
+        $userSuspendedCount = User::where('suspended', 1)->count();
 
         return view('admin.index')
             ->with('userCount', Number::format($userCount))

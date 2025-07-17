@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
                 'email' => 'supervisor@example.com',
                 'password' => 'Password1',
                 'email_verified_at' => now(),
-                'roles' => ['super-user', 'admin',],
+                'roles' => ['super-user', 'admin'],
                 'permissions' => [],
             ],
 
@@ -30,7 +30,7 @@ class UserSeeder extends Seeder
                 'email' => 'admin@example.com',
                 'password' => 'Password1',
                 'email_verified_at' => now(),
-                'roles' => ['admin',],
+                'roles' => ['admin'],
                 'permissions' => [],
             ],
 
@@ -40,7 +40,7 @@ class UserSeeder extends Seeder
                 'email' => 'staff@example.com',
                 'password' => 'Password1',
                 'email_verified_at' => now(),
-                'roles' => ['staff',],
+                'roles' => ['staff'],
                 'permissions' => [],
             ],
 
@@ -50,7 +50,7 @@ class UserSeeder extends Seeder
                 'email' => 'client@example.com',
                 'password' => 'Password1',
                 'email_verified_at' => now(),
-                'roles' => ['client',],
+                'roles' => ['client'],
                 'permissions' => [],
             ],
 
@@ -60,7 +60,7 @@ class UserSeeder extends Seeder
                 'email' => 'client2@example.com',
                 'password' => 'Password1',
                 'email_verified_at' => null,
-                'roles' => ['client',],
+                'roles' => ['client'],
                 'permissions' => [],
             ],
 
@@ -70,7 +70,7 @@ class UserSeeder extends Seeder
                 'email' => 'client3@example.com',
                 'password' => 'Password1',
                 'email_verified_at' => null,
-                'roles' => ['client',],
+                'roles' => ['client'],
                 'permissions' => [],
             ],
         ];
@@ -97,7 +97,6 @@ class UserSeeder extends Seeder
 
         // Uncomment the line below to create (10) randomly named users using the User Factory.
         // User::factory(10)->create();
-
 
     }
 }
