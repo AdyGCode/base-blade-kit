@@ -34,7 +34,7 @@
                             <span class="text-xs rounded-full bg-gray-700 p-0.5 px-2 text-gray-200">
                                 role
                             </span>
-                            </td>
+                        </td>
                         <td class="px-3 py-1 whitespace-nowrap w-1/6">
                             Suspended
                         </td>
