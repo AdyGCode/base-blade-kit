@@ -8,6 +8,52 @@
         "framework"
     ],
     "license": "MIT",
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi",
+            "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
+            "@php artisan migrate --graceful --ansi"
+        ],
+        "dev": [
+            "Composer\\Config::disableProcessTimeout",
+            "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"npm run dev\"  --names=server,queue,vite"
+        ],
+        "dev-win": [
+            "Composer\\Config::disableProcessTimeout",
+            "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"npm run dev\"  \"mailpit --smtp=0.0.0.0=2525\" --names=server,queue,vite,mailpit"
+        ],
+        "dev-linux": [
+            "Composer\\Config::disableProcessTimeout",
+            "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74,#74fdc5\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"npm run dev\" \"mailpit --smtp=0.0.0.0=2525\" --names=server,queue,logs,vite,mailpit"
+        ],
+        "test": [
+            "@php artisan config:clear --ansi",
+            "@php artisan test"
+        ],
+        "phpstan": [
+            "./vendor/bin/phpstan analyse --memory-limit=2G"
+        ]
+    },
+    "scripts-descriptions": {
+        "dev": "Run Dev Env: omits Laravel Pail, MailPit",
+        "dev-win": "Run Dev Env: omits Laravel Pail.",
+        "dev-linux": "Run Dev Env: includes MailPit, Laravel Pail.",
+        "phpstan": "Run PHPStan static analysis against your application.",
+        "post-autoload-dump": "Executes automatically after a composer dump-autoload",
+        "post-update-cmd": "Executes automatically after a composer update",
+        "post-root-package-install": "Executes automatically ONLY main laravel package installation",
+        "post-create-project-cmd": "Executes automatically ONLY after initial create project"
+    },
     "require": {
         "php": ">=8.2",
         "laravel/breeze": "^2.3",
@@ -39,52 +85,6 @@
         "psr-4": {
             "Tests\\": "tests/"
         }
-    },
-    "scripts": {
-        "post-autoload-dump": [
-            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
-        ],
-        "post-update-cmd": [
-            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
-        ],
-        "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ],
-        "post-create-project-cmd": [
-            "@php artisan key:generate --ansi",
-            "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
-            "@php artisan migrate --graceful --ansi"
-        ],
-        "dev": [
-            "Composer\\Config::disableProcessTimeout",
-            "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"npm run dev\" \"mailpit --smtp=0.0.0.0:2525\"  --names=server,queue,vite,mailpit"
-        ],
-        "dev-base": [
-            "Composer\\Config::disableProcessTimeout",
-            "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite"
-        ],
-        "dev-linux": [
-            "Composer\\Config::disableProcessTimeout",
-            "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74,#74fdc5\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"npm run dev\" \"mailpit --smtp=0.0.0.0:2525\" --names=server,queue,logs,vite,mailpit"
-        ],
-        "test": [
-            "@php artisan config:clear --ansi",
-            "@php artisan test"
-        ],
-        "phpstan": [
-            "./vendor/bin/phpstan analyse --memory-limit=2G"
-        ]
-    },
-    "scripts-descriptions": {
-        "dev": "Run Dev Env: omitsLaravel Pail, includes MailPit",
-        "dev-base": "Run Dev Env: omits MailPit, Laravel Pail.",
-        "dev-linux": "Run Dev Env: includes MailPit, Laravel Pail.",
-        "phpstan": "Run PHPStan static analysis against your application.",
-        "post-autoload-dump": "Executes automatically after a composer dump-autoload",
-        "post-update-cmd": "Executes automatically after a composer update",
-        "post-root-package-install": "Executes automatically ONLY main laravel package installation",
-        "post-create-project-cmd": "Executes automatically ONLY after initial create project"
     },
     "extra": {
         "laravel": {
