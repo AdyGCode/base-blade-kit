@@ -67,6 +67,7 @@ It provides a base template for the creation of a "SaaS" style application, omit
 
 ## Installation
 
+Remember to run `composer install` and `artisan migrate` to make sure all tables are created, and packages correctly installed.
 
 ### Via Laravel Herd
 
