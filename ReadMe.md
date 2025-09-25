@@ -89,8 +89,6 @@ Replace `my-app` with the name of your project, using kebab-case.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-
-
 ## Credits
 
 This template is built using:
