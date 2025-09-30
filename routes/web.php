@@ -1,13 +1,25 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\ComponentDemoController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StaticPageController;
 use Illuminate\Support\Facades\Route;
 
+Route::prefix('components')
+    ->name('components.')
+    ->group(function () {
+        Route::get('/index', [ComponentDemoController::class, 'index'])
+            ->name('index');
+    });
+
 Route::get('/', [StaticPageController::class, 'home'])
     ->name('home');
+
+Route::get('/components/index', [ComponentDemoController::class, 'index'])
+    ->name('components.index');
+
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])

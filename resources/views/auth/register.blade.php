@@ -1,7 +1,10 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('register') }}" class="max-w-4xl mx-auto sm:mt-24">
         @csrf
 
+        <h2 class="text-3xl font-semibold pb-12 text-gray-700">
+            {{ __("Register") }}
+        </h2>
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />

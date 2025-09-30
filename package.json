@@ -19,6 +19,8 @@
         "vite": "^6.2.4"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-free": "^7.0.0"
+        "@fortawesome/fontawesome-free": "^7.0.0",
+        "@tailwindcss/typography": "^0.5.19",
+        "ckeditor5": "^46.1.1"
     }
 }

@@ -1,6 +1,10 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('password.store') }}">
+    <form method="POST" action="{{ route('password.store') }}" class="max-w-4xl mx-auto sm:mt-24">
         @csrf
+
+        <h2 class="text-3xl font-semibold pb-12 text-gray-700">
+            {{ __("Request Password Reset") }}
+        </h2>
 
         <!-- Password Reset Token -->
         <input type="hidden" name="token" value="{{ $request->route('token') }}">
