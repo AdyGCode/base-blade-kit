@@ -7,13 +7,6 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StaticPageController;
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('components')
-    ->name('components.')
-    ->group(function () {
-        Route::get('/index', [ComponentDemoController::class, 'index'])
-            ->name('index');
-    });
-
 Route::get('/', [StaticPageController::class, 'home'])
     ->name('home');
 
@@ -44,5 +37,30 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])
         ->name('profile.destroy');
 });
+
+
+/**
+ * Demo page routing for components.
+ *
+ * Remove when not needed, as with:
+ * - App\Http\Controllers\ComponentDemoController.php
+ * - ...
+ */
+
+
+Route::prefix('components')
+    ->name('components.')
+    ->group(function () {
+        Route::get('/', [ComponentDemoController::class, 'index'])
+            ->name('index');
+        Route::get('ckeditor', [ComponentDemoController::class, 'ckeditor'])
+            ->name('ckeditor');
+        Route::get('inputs', [ComponentDemoController::class, 'inputs'])
+            ->name('inputs');
+        Route::get('link-buttons', [ComponentDemoController::class, 'linkButtons'])
+            ->name('link-buttons');
+        Route::get('badges', [ComponentDemoController::class, 'badges'])
+            ->name('badges');
+    });
 
 require __DIR__.'/auth.php';
