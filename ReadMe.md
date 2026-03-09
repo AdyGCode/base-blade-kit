@@ -67,7 +67,14 @@ It provides a base template for the creation of a "SaaS" style application, omit
 
 ## Installation
 
-Remember to run `composer install` and `artisan migrate` to make sure all tables are created, and packages correctly installed.
+Remember to run `composer install`, `php artisan migrate`, `php artisan 
+key:generate` to make sure a key is generated, all tables are created, 
+and packages correctly installed.
+
+Alternatively, you may use `composer setup` to install all packages, 
+set a key, migrate and other common Laravel setup steps (using `pnpm`
+for Node.js package management). Using `composer setup-npm` will perform
+the same process but using `npm` for package management.
 
 ### Via Laravel Herd
 
@@ -83,8 +90,22 @@ Create a new Laravel application using this starter kit through the official [La
   laravel new my-app --using=adygcode/base-blade-kit
 ```
 
-Replace `my-app` with the name of your project, using kebab-case.
+to use PNPM in place of NPM use:
 
+```bash
+  laravel new my-app -pnpm --using=adygcode/base-blade-kit
+```
+
+To install with Pest, PNPM, Livewire, initialise a git repo, SQLite, ...
+(Typed in on a single command line):
+
+```bash
+  laravel new my-app --pnpm --git --database=sqlite \
+    --pest --using=adygcode/base-blade-kit 
+```
+
+In either case, you must replace `my-app` with the name of your project, 
+using kebab-case. For example `duck-quack-paddle`.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

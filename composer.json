@@ -9,6 +9,22 @@
     ],
     "license": "MIT",
     "scripts": {
+        "setup": [
+            "composer install",
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "@php artisan key:generate",
+            "@php artisan migrate --force",
+            "pnpm install",
+            "pnpm run build"
+        ],
+        "setup-npm": [
+            "composer install",
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "@php artisan key:generate",
+            "@php artisan migrate --force",
+            "npm install",
+            "npm run build"
+        ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
@@ -26,15 +42,19 @@
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
-            "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"npm run dev\"  --names=server,queue,vite"
+            "pnpm dlx  concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"npm run dev\"  --names=server,queue,vite"
         ],
         "dev-win": [
+            "Composer\\Config::disableProcessTimeout",
+            "pnpm dlx  concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"npm run dev\"  \"mailpit --smtp=0.0.0.0:2525\" --names=server,queue,vite,mailpit"
+        ],
+        "dev-win-npm": [
             "Composer\\Config::disableProcessTimeout",
             "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"npm run dev\"  \"mailpit --smtp=0.0.0.0:2525\" --names=server,queue,vite,mailpit"
         ],
         "dev-linux": [
             "Composer\\Config::disableProcessTimeout",
-            "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74,#74fdc5\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"npm run dev\" \"mailpit --smtp=0.0.0.0:2525\" --names=server,queue,logs,vite,mailpit"
+            "pnpm dlx  concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74,#74fdc5\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"php artisan pail --timeout=0\" \"npm run dev\" \"mailpit --smtp=0.0.0.0:2525\" --names=server,queue,logs,vite,mailpit"
         ],
         "test": [
             "@php artisan config:clear --ansi",
@@ -45,33 +65,39 @@
         ]
     },
     "scripts-descriptions": {
+        "setup": "Installs composer packages, copy .env.example, generate key, force migration, install node packages using pnpm",
         "dev": "Run Dev Env: omits Laravel Pail, MailPit",
         "dev-win": "Run Dev Env: omits Laravel Pail.",
         "dev-linux": "Run Dev Env: includes MailPit, Laravel Pail.",
         "phpstan": "Run PHPStan static analysis against your application.",
         "post-autoload-dump": "Executes automatically after a composer dump-autoload",
         "post-update-cmd": "Executes automatically after a composer update",
-        "post-root-package-install": "Executes automatically ONLY main laravel package installation",
+        "post-root-package-install": "Executes automatically ONLY main Laravel package installation",
         "post-create-project-cmd": "Executes automatically ONLY after initial create project"
     },
     "require": {
-        "php": ">=8.2",
+        "php": "^8.4",
         "laravel/breeze": "^2.3",
+        "laravel/fortify": "^1.30",
         "laravel/framework": "^12.0",
-        "laravel/telescope": "^5.10",
+        "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.10.1",
-        "livewire/livewire": "^3.6"
+        "livewire/blaze": "^1.0",
+        "livewire/livewire": "^4.2"
     },
     "require-dev": {
-        "barryvdh/laravel-debugbar": "^3.15",
+        "barryvdh/laravel-ide-helper": "^3.6",
         "fakerphp/faker": "^1.23",
-        "larastan/larastan": "^3.5",
-        "laravel/pint": "^1.24",
-        "laravel/sail": "^1.41",
+        "laradumps/laradumps": "^5.1",
+        "laradumps/laradumps-core": "^4.0",
+        "larastan/larastan": "^3.9",
+        "laravel/pail": "^1.2.2",
+        "laravel/pint": "^1.27",
+        "laravel/sail": "^1.53",
         "mockery/mockery": "^1.6",
-        "nunomaduro/collision": "^8.6",
-        "pestphp/pest": "^3.8",
-        "pestphp/pest-plugin-laravel": "^3.2",
+        "nunomaduro/collision": "^8.9",
+        "pestphp/pest": "^4.4",
+        "pestphp/pest-plugin-laravel": "^4.1",
         "roave/security-advisories": "dev-latest"
     },
     "autoload": {
